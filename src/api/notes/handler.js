@@ -67,7 +67,7 @@ class NotesHandler {
     }
   }
 
-  putNoteByIdHandler(request) {
+  putNoteByIdHandler(request, h) {
     try {
       const { id } = request.params;
 
@@ -77,7 +77,7 @@ class NotesHandler {
         status: 'success',
         message: 'Catatan berhasil diperbarui',
       };
-    } catch {
+    } catch (error) {
       const response = h.response({
         status: 'fail',
         message: error.message,
@@ -102,7 +102,7 @@ class NotesHandler {
     } catch (error) {
       const response = h.response({
         status: 'fail',
-        message: 'Catatan gagal dihapus. Id tidak ditemukan',
+        message: error.message,
       });
 
       response.code(404);
