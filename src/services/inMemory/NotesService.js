@@ -41,7 +41,7 @@ class NoteService {
       throw new Error('Catatan tidak ditemukan');
     }
 
-    return 0;
+    return note;
   }
 
   editNoteById(id, { title, body, tags }) {
@@ -56,8 +56,8 @@ class NoteService {
     this._notes[index] = {
       ...this._notes[index],
       title,
-      tags,
       body,
+      tags,
       updatedAt,
     };
   }
