@@ -31,7 +31,7 @@ class UsersService {
   async getUserById(userId) {
     const query = {
       text: 'SELECT id, username, fullname FROM users WHERE id = $1',
-      VALUES: [userId],
+      values: [userId],
     };
 
     const result = await this._pool.query(query);
@@ -53,7 +53,7 @@ class UsersService {
 
     if (result.rowCount > 0) {
       throw new InvariantError(
-        'Gagal menambahkan user. Username sudah digunakan.',
+        'Gagal menambahkan user. Username sudah digunakan.'
       );
     }
   }
