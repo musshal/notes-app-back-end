@@ -14,7 +14,7 @@ const AuthenticationsValidator = {
     }
   },
 
-  validatePutAuthenticationPayloadSchema: (payload) => {
+  validatePutAuthenticationPayload: (payload) => {
     const validationResult = PutAuthenticationPayloadSchema.validate(payload);
 
     if (validationResult.error) {
