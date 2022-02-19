@@ -111,7 +111,7 @@ class AuthenticationsHandler {
 
       const { refreshToken } = request.payload;
       await this._authenticationsService.verifyRefreshToken(refreshToken);
-      await this._authenticationsService.deleteRefresh(refreshToken);
+      await this._authenticationsService.deleteRefreshToken(refreshToken);
 
       return {
         status: 'success',
