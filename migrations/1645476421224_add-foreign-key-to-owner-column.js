@@ -5,7 +5,7 @@ exports.shorthands = undefined;
 exports.up = (pgm) => {
   // membuat user baru.
   pgm.sql(
-    "INSERT INTO users(id, username, password, fullname) VALUES('old_notes', 'old_notes', 'old_notes', 'old_notes')"
+    "INSERT INTO users(id, username, password, fullname) VALUES('old_notes', 'old_notes', 'old_notes', 'old_notes')",
   );
 
   // mengubah nilai owner pada note yang owner-nya bernilai NULL
@@ -15,7 +15,7 @@ exports.up = (pgm) => {
   pgm.addConstraint(
     'notes',
     'fk_notes.owner_user.id',
-    'FOREIGN KEY(owner) REFERENCES users(id) ON DELETE CASCADE'
+    'FOREIGN KEY(owner) REFERENCES users(id) ON DELETE CASCADE',
   );
 };
 
